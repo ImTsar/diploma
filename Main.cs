@@ -38,8 +38,10 @@ namespace GW_1
             InitializeDirectionButtons();
             InitializeProcessorElement();
             FillChart(chart1);
+            var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var fullPath = Path.Combine(currentDirectory, $"..\\..\\..\\translations.json");
 
-            languageDictionary = LanguageDictionary.LoadFromFile("translations.json");
+            languageDictionary = LanguageDictionary.LoadFromFile(fullPath);
             ChangeLanguage(this); 
         }
         public void ChangeLanguage(Control parent)
